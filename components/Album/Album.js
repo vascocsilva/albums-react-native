@@ -1,7 +1,8 @@
 import React from 'react'
-import { StyleSheet, Text, Image, View } from 'react-native'
+import { StyleSheet, Text, View, Dimensions } from 'react-native'
 import Card from '../Card'
 import CardSection from '../CardSection'
+import Image from 'react-native-scalable-image'
 
 const Album = ({ album }) => {
   const { title, artist, image } = album
@@ -20,7 +21,7 @@ const Album = ({ album }) => {
         <View>
           <Image
             source={{uri: 'https://d1nhio0ox7pgb.cloudfront.net/_img/g_collection_png/standard/256x256/singer.png'}}
-            style={artistImageStyle}
+            width={20}
           />
         </View>
         <View style={headerStyle}>
@@ -30,7 +31,7 @@ const Album = ({ album }) => {
       </CardSection>
       <CardSection>
         <View style={imageContainerStyle}>
-          <Image source={{uri: image}} style={imageStyle} />
+          <Image source={{uri: image}} width={Dimensions.get('window').width / 2} />
         </View>
       </CardSection>
     </Card>
@@ -44,7 +45,7 @@ const styles = {
     width: '100%',
   },
   imageStyle: {
-    width: 200,
+    width: '100%',
     height: 200,
   },
   artistImageStyle: {
