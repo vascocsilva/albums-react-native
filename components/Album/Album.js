@@ -3,6 +3,7 @@ import { StyleSheet, Text, View, Dimensions } from 'react-native'
 import Card from '../Card'
 import CardSection from '../CardSection'
 import Image from 'react-native-scalable-image'
+import Button from '../Button'
 
 const Album = ({ album }) => {
   const { title, artist, image } = album
@@ -29,10 +30,18 @@ const Album = ({ album }) => {
           <Text>{artist}</Text>
         </View>
       </CardSection>
+
       <CardSection>
         <View style={imageContainerStyle}>
-          <Image source={{uri: image}} width={Dimensions.get('window').width / 2} />
+          <Image source={{uri: image}} width={Dimensions.get('window').width - 20} />
         </View>
+      </CardSection>
+
+
+      <CardSection>
+        <Button onPress={() => console.log(title)}>
+          {`Buy "${title}" by ${artist}`}
+        </Button>
       </CardSection>
     </Card>
   )
